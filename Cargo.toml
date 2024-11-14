@@ -1,0 +1,11 @@
+[package]
+name = "fixstr"
+version = "0.0.1"
+edition = "2021"
+license = "MIT"
+description = "A simple library for fixing strings"
+repository = "https://github.com/piot/fixstr"
+categories = ["data-structures", "no-std", "rust-patterns", "memory-management"]
+keywords = ["string", "fixed", "stack", "no-heap", "embedded"]
+
+[dependencies]
