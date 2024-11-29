@@ -54,3 +54,9 @@ fn test_default() {
     assert!(s.is_empty());
     assert!(s.to_string().is_empty());
 }
+
+#[test]
+fn debug_string() {
+    let s: FixStr<8> = FixStr::new("abc").unwrap();
+    assert_eq!(format!("{:?}", s), "FixStr(\"abc\")");
+}

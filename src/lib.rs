@@ -20,13 +20,20 @@
 /// `FixStr<N>` stores up to N octets inline and guarantees valid UTF-8.
 /// Useful for small strings where heap allocation is undesirable.
 use std::fmt;
+use std::fmt::{Debug, Display};
 use std::marker::PhantomData;
 
-#[derive(Clone, Copy, Debug, Hash, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Copy, Hash, Eq, Ord, PartialEq, PartialOrd)]
 pub struct FixStr<const N: usize> {
     inline: [u8; N],
     len: u8,
     _marker: PhantomData<[u8; N]>,
+}
+
+impl<const N: usize> Debug for FixStr<N> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "FixStr(\"{}\")", self.as_str())
+    }
 }
 
 impl<const N: usize> Default for FixStr<N> {
