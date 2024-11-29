@@ -47,3 +47,10 @@ fn test_conversions() {
 fn test_unchecked_panics() {
     let _s: FixStr<2> = FixStr::new_unchecked("too long");
 }
+
+#[test]
+fn test_default() {
+    let s = FixStr::<8>::default();
+    assert!(s.is_empty());
+    assert!(s.to_string().is_empty());
+}

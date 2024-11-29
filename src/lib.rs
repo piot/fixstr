@@ -29,6 +29,16 @@ pub struct FixStr<const N: usize> {
     _marker: PhantomData<[u8; N]>,
 }
 
+impl<const N: usize> Default for FixStr<N> {
+    fn default() -> Self {
+        Self {
+            inline: [0; N],
+            len: 0,
+            _marker: PhantomData,
+        }
+    }
+}
+
 impl<const N: usize> FixStr<N> {
     /// Creates a new `FixStr` if the input fits within capacity.
     ///
